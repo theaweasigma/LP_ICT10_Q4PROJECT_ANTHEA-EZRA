@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 10 Amethyst - Student Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-logo">10-Ruby</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
+                <li><a href="#" data-page="classmates" class="nav-link">Classmates</a></li>
+                <li><a href="#" data-page="attendance" class="nav-link">Attendance</a></li>
+                <li><a href="#" data-page="gallery" class="nav-link">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <h1>Welcome to 10-Ruby!</h1>
+            <p>Add and view your classmates easily</p>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <h3> Classmates</h3>
+                <p> Class and fav subjects </p>
+            </div>
+            <div class="feature-card">
+                <h3> Attendance</h3>
+                <p> always absent or not? </p>
+            </div>
+            <div class="feature-card">
+                <h3> Gallery</h3>
+                <p> abundance of chaos in ruby </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Classmates Page -->
+    <div id="classmates" class="page">
+        <div class="page-header">
+            <h1>Classmates System</h1>
+            <p>Add and view your classmates easily</p>
+        </div>
+        
+        <div class="container">
+            <div class="form-section">
+                <h2>Add Classmate</h2>
+                <select id="classmateSelect" class="input-field">
+                    <option value="">Select a Classmate</option>
+                    <option value="Kristine">Caiomey</option>
+                    <option value="Jean">Anxela</option>
+                    <option value="Harlette">Maiah</option>
+                    <option value="Jubilee">Thea</option>
+                    <option value="Vivian">Nathan</option>
+                    <option value="Luisito">Andrei</option>
+                    <option value="Renn">Pio</option>
+                    <option value="Joshua">Ezra</option>
+                    <option value="Kristine">Gelo</option>
+                    <option value="Jean">Aaron</option>
+                    <option value="Harlette">Joo</option>
+                    <option value="Jubilee">Jercey</option>
+                    <option value="Vivian">Katelyn</option>
+                    <option value="Luisito">Hans</option>
+                    <option value="Renn">Niko</option>
+                    <option value="Joshua">Chelsea</option>
+                    <option value="Kristine">Sittie</option>
+                    <option value="Jean">Jarett</option>
+                    <option value="Harlette">Xander</option>
+                    <option value="Jubilee">Sam</option>
+                    <option value="Vivian">Anika</option>
+                    <option value="Luisito">Gab</option>
+                    <option value="Renn">JBE</option>
+                    <option value="Joshua">JBL</option>
+                    <option value="Luisito">Kaila</option>
+                    <option value="Renn">Chloe</option>
+                    <option value="Joshua">Athena</option>
+                    <option value="Luisito">Uriel</option>
+                    </option>
+                </select>
+                <select id="subjectInput" class="input-field">
+                    <option value="">Select Favorite Subject</option>
+                    <option value="Math">Math</option>
+                    <option value="Science">Science</option>
+                    <option value="English">English</option>
+                    <option value="SS">SS</option>
+                    <option value="PE">PE</option>
+                    <option value="Art">Art</option>
+                    <option value="Music">Music</option>
+                    <option value="Dismissal">Dismissal</option>
+                    <option value="Dismissal">Snack time</option>
+                </select>
+                <button id="addBtn" class="btn btn-primary">Add Classmate</button>
+            </div>
+
+            <div class="list-section">
+                <h2>Classmate List</h2>
+                <div id="classmateList" class="classmate-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attendance Page -->
+    <div id="attendance" class="page">
+        <div class="page-header">
+            <h1>Attendance Tracker</h1>
+            <p>Track student absences and view analytics</p>
+        </div>
+
+        <div class="container">
+            <div class="attendance-container">
+                <div class="attendance-form">
+                    <h2>Record Absence</h2>
+                    <select id="dayInput" class="input-field">
+                        <option value="">Select Day</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                    </select>
+                    <input type="number" id="absencesInput" placeholder="Number of Absences" class="input-field" min="0">
+                    <button id="submitAttendance" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="chart-container">
+                    <h2>Weekly Attendance (Absences)</h2>
+                    <canvas id="attendanceChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="gallery" class="page">
+        <div class="page-header">
+            <h1>Highlights of Our 10-Amethyst Journey</h1>
+            <p>Memorable moments from our school journey</p>
+        </div>
+
+        <div class="container">
+            <div class="gallery-form">
+                <h2>Add Your Moment</h2>
+                <input type="text" id="studentNameInput" placeholder="Your Name" class="input-field">
+                <input type="text" id="momentTitleInput" placeholder="Moment Title" class="input-field">
+                <textarea id="momentDescriptionInput" placeholder="Description" class="input-field" rows="3"></textarea>
+                <input type="file" id="photoInput" accept="image/*" class="input-field">
+                <button id="addMomentBtn" class="btn btn-primary">Add Moment</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Moments will be added here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025-2026 10-Ruby. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
